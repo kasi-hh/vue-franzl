@@ -113,7 +113,7 @@ export default {
         Vue.component('b-form-row', bFormRow);
         Vue.component('b-form-text', bFormText);
         Vue.component('b-form-valid-feedback', bFormValidFeedback);
-        Vue.component('b-form-textaread', bFormTextarea);
+        Vue.component('b-form-textarea', bFormTextarea);
         Vue.component('b-form-select', bFormSelect);
         Vue.component('b-form-radio', bFormRadio);
         Vue.component('b-form-radio-group', bFormRadioGroup);

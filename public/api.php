@@ -6,4 +6,4 @@
  * Time: 14:10
  */
 
-echo PHP_VERSION;
+include '../backend/bootstrap.php';

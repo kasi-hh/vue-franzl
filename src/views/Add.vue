@@ -9,6 +9,8 @@
                 <img ref="image" alt="" style="width:100%"></img>
                 <canvas ref="canvas" style="display:none"></canvas>
                 <hr>
+                <b-form-input v-model="title" placeholder="Iitel"></b-form-input>
+                <b-form-textarea v-model="text" :rows="4" placeholder="Informationstext"></b-form-textarea>
                 <b-button @click="sendImage">Absenden</b-button>
             </b-col>
         </b-row>
@@ -26,7 +28,9 @@
         data() {
             return {
                 selected: 'none',
-                options: []
+                options: [],
+                text:'',
+                title:''
             }
         },
         mounted() {
@@ -57,7 +61,7 @@
                             // Other browsers will fall back to ima+ge/png
                             image.src = canvas.toDataURL('image/jpg');
                         }
-                        tmpImg.src = '/test.jpg';
+                        tmpImg.src = '/images/test.jpg';
                     }
                 }).catch((error) => {
                 console.log('enumerateDeviceError', error)
@@ -106,7 +110,9 @@
                 const canvas = this.$refs.canvas;
                 console.log('canvas', canvas);
                 const dataUrl = canvas.toDataURL('image/jpg');
-                axios.post('/api/add', {
+                axios.post('/api/image/add', {
+                    title:this.title,
+                    info:this.info,
                     image:dataUrl
                 })
 

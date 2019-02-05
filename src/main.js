@@ -10,6 +10,20 @@ import Bootstrap from './register-bootstrap'
 Vue.config.productionTip = false;
 Vue.use(Bootstrap);
 
+router.beforeEach((to, from, next)=>{
+    console.log('router', to, from)
+    const token = localStorage.getItem('token');
+    if (to.name === 'login') {
+        next();
+        return;
+    }
+    if (!token) {
+        next('/login');
+        return;
+    }
+    next();
+})
+
 new Vue({
   router,
   store,
